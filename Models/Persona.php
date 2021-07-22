@@ -57,6 +57,14 @@ class Persona
     {
         return $this->telefono;
     }
+    public function setCedula($cedula)
+    {
+        $this->cedula = $cedula;
+    }
+    public function getCedula()
+    {
+        return $this->cedula;
+    }
 
     public function setEmail($email)
     {
