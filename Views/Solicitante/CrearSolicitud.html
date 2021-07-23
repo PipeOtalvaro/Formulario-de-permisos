@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Formulario de solicitud - Formoid html form</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="blurBg-false" style="background-color:#EBEBEB">
+
+
+
+<!-- Start Formoid form-->
+<link rel="stylesheet" href="crearsolicitud_files/formoid1/formoid-solid-green.css" type="text/css" />
+<script type="text/javascript" src="crearsolicitud_files/formoid1/jquery.min.js"></script>
+<form class="formoid-solid-green" style="background-color:#ffffff;font-size:14px;font-family:'Roboto',Arial,Helvetica,sans-serif;color:#34495E;max-width:480px;min-width:150px" method="post">
+	<div class="title">
+		<h2>Formulario de solicitud</h2>
+	</div>
+	<div class="element-input">
+		<label class="title">
+			<span class="required">*</span>
+		</label>
+		<div class="item-cont"><input class="large" type="text" name="input" required="required" placeholder="Nombre del solicitante"/>
+			type="text" name="input2" required="required" placeholder="Primer Apellido"/>
+			<span class="icon-place"></span>
+		</div>
+	</div>
+	<div class="element-input">
+		<label class="title"></label>
+		<div class="item-cont">
+			<input class="large" type="text" name="input1" placeholder="Segundo Apellido"/>
+			<span class="icon-place"></span>
+		</div>
+	</div>
+	<div class="element-email">
+		<label class="title"></label>
+		<div class="item-cont">
+			<input class="large" type="email" name="email" value="" placeholder="Correo electrónico"/>
+			<span class="icon-place"></span>
+		</div>
+	</div>
+	<div class="element-phone">
+		<label class="title">
+			<span class="required">*</span>
+		</label>
+		<div class="item-cont">
+			<input class="large" type="tel" pattern="[+]?[\.\s\-\(\)\*\#0-9]{3,}" maxlength="24" name="phone" required="required" placeholder="Celular" value=""/>
+			<span class="icon-place"></span>
+		</div>
+	</div>
+	<div class="element-date">
+		<label class="title">
+			<span class="required">*</span>
+		</label>
+		<div class="item-cont">
+			<input class="large" data-format="yyyy-mm-dd" type="date" name="date2" required="required" placeholder="Fecha en la que se realiza la solicitud"/>
+			<span class="icon-place"></span>
+		</div>
+	</div>
+	<div class="element-multiple">
+		<label class="title">
+			<span class="required">*</span>
+		</label>
+		<div class="item-cont">
+			<div class="large">
+				<select data-no-selected="Nothing selected" name="multiple[]" multiple="multiple" required="required">undefined</select>
+				<span class="icon-place"></span>
+			</div>		
+		</div>
+	</div>
+	<div class="element-separator">
+		<hr><h3 class="section-break-title"></h3>
+	</div>
+	<div class="element-select">
+		<label class="title">
+			<span class="required">*</span>
+		</label>
+		<div class="item-cont">
+			<div class="large">
+				<span>
+					<select name="select" required="required">
+
+						<option value="option 1">option 1</option>
+						<option value="option 2">option 2</option>
+						<option value="option 3">option 3</option>
+					</select>
+					<i></i>
+					<span class="icon-place"></span>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="element-radio">
+		<label class="title">Cardinalidad
+			<span class="required">*</span>
+		</label>		
+		<div class="column column2">
+			<label>
+				<input type="radio" name="radio" value="Salida" required="required"/>
+				<span>Salida</span>
+			</label>
+		</div>
+		<span class="clearfix"></span>
+		<div class="column column2">
+			<label>
+				<input type="radio" name="radio" value="Entrada" required="required"/>
+				<span>Entrada</span>
+			</label>
+		</div>
+		<span class="clearfix"></span>
+</div>
+	<div class="element-date">
+		<label class="title">
+			<span class="required">*</span>
+		</label>
+		<div class="item-cont">
+			<input class="large" data-format="yyyy-mm-dd" type="date" name="date" required="required" placeholder="Fecha de inicio"/>
+			<span class="icon-place"></span>
+		</div>
+	</div>
+	<div class="element-date">
+		<label class="title">
+			<span class="required">*</span>
+		</label>
+		<div class="item-cont">
+			<input class="large" data-format="yyyy-mm-dd" type="date" name="date1" required="required" placeholder="Fecha de fin"/>
+			<span class="icon-place"></span>
+		</div>
+	</div>
+	<div class="element-number">
+		<label class="title">
+			<span class="required">*</span>
+		</label>
+		<div class="item-cont">
+			<input class="large" type="text" min="1" max="7" name="number" required="required" placeholder="Número de días que se ausentará" value=""/>
+			<span class="icon-place"></span>
+		</div>
+	</div>
+	<div class="element-checkbox">
+		<label class="title">Días
+			<span class="required">*</span>
+		</label>		
+		<div class="column column4">
+			<label>
+				<input type="checkbox" name="checkbox[]" value="L "/ required="required">
+				<span>L </span>
+			</label>
+			<label>
+				<input type="checkbox" name="checkbox[]" value="V"/ required="required">
+			<span>V</span>
+		</label>
+	</div>
+	<span class="clearfix"></span>
+		<div class="column column4">
+			<label>
+				<input type="checkbox" name="checkbox[]" value="M"/ required="required">
+				<span>M</span>
+			</label>
+			<label>
+				<input type="checkbox" name="checkbox[]" value="S"/ required="required">
+				<span>S</span>
+			</label>
+		</div>
+		<span class="clearfix"></span>
+		<div class="column column4">
+			<label>
+				<input type="checkbox" name="checkbox[]" value="X"/ required="required">
+				<span>X</span>
+			</label>
+			<label>
+				<input type="checkbox" name="checkbox[]" value="D"/ required="required">
+				<span>D</span>
+			</label>
+		</div>
+		<span class="clearfix"></span>
+		<div class="column column4">
+			<label>
+				<input type="checkbox" name="checkbox[]" value="J"/ required="required">
+				<span>J</span>
+			</label>
+		</div>
+		<span class="clearfix"></span>
+	</div>
+	<div class="element-select"><label
+		 class="title"
+		 ><span c
+		 lass="
+		 required">*</span></label><div class="item-cont"><div class="large"><span><select name="select1" required="required">
+
+		<option value="Una vez ">Una vez </option>
+		<option value="Semanal">Semanal</option>
+		<option value="Quincenal">Quincenal</option>
+		<option value="Mensual">Mensual</option></select><i></i><span class="icon-place"></span></span></div></div></div>
+	<div class="element-textarea"><label class="title"><span class="required">*</span></label><div class="item-cont"><textarea class="large" name="textarea" cols="20" rows="5" required="required" placeholder="Explique el motivo de la solicitud"></textarea><span class="icon-place"></span></div></div>
+	<div class="element-select"><label class="title"></label><div class="item-cont"><div class="large"><span><select name="select2" >
+undefined</select><i></i><span class="icon-place"></span></span></div></div></div>
+	<div class="element-radio"><label class="title">Respuesta</label>		<div class="column column1"><label><input type="radio" name="radio1" value="Aceptado" /><span>Aceptado</span></label><label><input type="radio" name="radio1" value="Denegado" /><span>Denegado</span></label></div><span class="clearfix"></span>
+</div>
+<div class="submit"><input type="submit" value="Enviar"/></div></form><p class="frmd"><a href="http://formoid.com/v29.php">html form</a> Formoid.com 2.9</p><script type="text/javascript" src="crearsolicitud_files/formoid1/formoid-solid-green.js"></script>
+<!-- Stop Formoid form-->
+
+
+
+</body>
+</html>
