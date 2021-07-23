@@ -13,6 +13,11 @@ class Persona
     private $createAt;
 
 
+    private $con;
+    public function __construct()
+    {
+        $this->con = new Conexion();
+    }
     public function setId($id)
     {
         $this->id = $id;
@@ -82,5 +87,14 @@ class Persona
     public function getCreateAt()
     {
         return $this->createAt;
+    }
+
+    public function listar()
+    {
+        $sql = "SELECT CONCAT(j.nombre, ' ', j.primer_apellido, ' ', j.segundo_apellido ) nombre_completo FROM jefes j 
+        UNION ALL
+        SELECT CONCAT(p.nombre, ' ', p.primer_apellido, ' ', p.segundo_apellido) FROM personas";
+        $datos = $this->con->consultaRetorno($sql);
+        return $datos;
     }
 }
