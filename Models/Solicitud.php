@@ -10,6 +10,7 @@ class Solicitud
     private $jefe;
     private $personaAusente;
     private $tipo;
+    private $cardinalidad;
     private $fechaInicio;
     private $fechaFin;
     private $horaInicio;
@@ -19,6 +20,7 @@ class Solicitud
     private $frecuencia;
     private $explicacion;
     private $jefeDirecto;
+    private $respuesta;
 
 
     public function __construct()
@@ -27,6 +29,7 @@ class Solicitud
         $this->personaAusente = new Persona();
         $this->jefeDirecto = new Jefe();
         $this->solicitante = new Solicitud();
+        $this->dias = new Dias();
     }
 
     public function setSolicitante($solicitante)
@@ -36,6 +39,15 @@ class Solicitud
     public function getSolicitante()
     {
         return $this->solicitante;
+    }
+
+    public function setCardinalidad($cardinalidad)
+    {
+        $this->cardinalidad = $cardinalidad;
+    }
+    public function getCardinalidad()
+    {
+        return $this->cardinalidad;
     }
 
     public function setFechaSolicitud($fechaSolicitud)
@@ -117,14 +129,6 @@ class Solicitud
     {
         return $this->numeroDias;
     }
-    public function setDias($dias)
-    {
-        $this->dias = $dias;
-    }
-    public function getDias()
-    {
-        return $this->dias;
-    }
     public function setFrecuencia($frecuencia)
     {
         $this->frecuencia = $frecuencia;
@@ -148,5 +152,14 @@ class Solicitud
     public function getJefeDirecto()
     {
         return $this->jefeDirecto;
+    }
+
+    public function setRespuesta($respuesta)
+    {
+        $this->respuesta = $respuesta;
+    }
+    public function getRespuesta()
+    {
+        return $this->respuesta;
     }
 }
