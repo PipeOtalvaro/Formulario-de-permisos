@@ -377,5 +377,3 @@ function frmd_handler(){
 }
 
 frmd_handler();
-
-?>
