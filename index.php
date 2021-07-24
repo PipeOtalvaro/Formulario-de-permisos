@@ -4,10 +4,13 @@ include("Views/Includes/header.php");
 ?>
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 define('DS', DIRECTORY_SEPARATOR);
 define('ROOT', realpath(dirname(__FILE__)), DS);
 define('URL', "http://localhost/formulario_permisos/");
 =======
+=======
+>>>>>>> Stashed changes
 <body style="background-color:#EBEBEB">
     <!-- <link rel="stylesheet" href="../Templates/css/estilos.css" /> -->
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
@@ -249,5 +252,9 @@ define('URL', "http://localhost/formulario_permisos/");
     <script src="js/formularioSolicitud.js" />
     </script>
 </body>
+<<<<<<< Updated upstream
+<?php include("Views/Includes/footer.php"); ?>
+>>>>>>> Stashed changes
+=======
 <?php include("Views/Includes/footer.php"); ?>
 >>>>>>> Stashed changes
