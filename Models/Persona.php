@@ -97,4 +97,17 @@ class Persona
         $datos = $this->con->consultaRetorno($sql);
         return $datos;
     }
+
+    public function add()
+    {
+        $sql = "INSERT INTO personas (id, nombre, primer_apellido, segundo_apellido, telefono, email, create_at)
+        VALUES(null, '{$this->nombre}','{$this->primerApellido}','{$this->segundoApellido}','{$this->telefono}','{$this->email}', NOW()";
+        $this->con->consultaSimple($sql);
+    }
+
+    public function delete()
+    {
+        $sql = "DELETE FROM personas WHERE id = '{$this->id}'";
+        $this->con->consultaSimple($sql);
+    }
 }
