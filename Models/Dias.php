@@ -2,11 +2,19 @@
 
 namespace Models;
 
+use Models\Conexion;
+
 class Dias
 {
 
-    private $id;
-    private $dia;
+    public $id;
+    public $nombre;
+
+    public $con;
+    public function __construct()
+    {
+        $this->con = new Conexion();
+    }
 
     public function setId($id)
     {
@@ -17,12 +25,25 @@ class Dias
         return $this->id;
     }
 
-    public function setDia($dia)
+    public function setNombre($nombre)
     {
-        $this->dia = $dia;
+        $this->nombre = $nombre;
     }
-    public function getDia()
+    public function getNombre()
     {
-        return $this->dia;
+        return $this->nombre;
+    }
+
+    public function obtenerDias()
+    {
+        $sql = "SELECT * FROM dias";
+        $query = $this->con->consultaRetorno($sql);
+        $data =  array();
+        if ($query) {
+            while ($dia = $query->fetch_object()) {
+                $data[] = $dia;
+            }
+        }
+        return $data;
     }
 }

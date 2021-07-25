@@ -2,6 +2,11 @@
 
 namespace Models;
 
+use Models\Jefe;
+use Models\Persona;
+use Models\Solicitante;
+use Models\Dias;
+
 class Solicitud
 {
 
@@ -25,16 +30,22 @@ class Solicitud
 
     public function __construct()
     {
-        $this->jefe = new Revisor();
+        $this->jefe = new Jefe();
         $this->personaAusente = new Persona();
         $this->jefeDirecto = new Jefe();
-        $this->solicitante = new Solicitud();
+        $this->solicitante = new Solicitante();
         $this->dias = new Dias();
     }
 
     public function setSolicitante($solicitante)
     {
         $this->solicitante = $solicitante;
+        $this->frecuencia = [
+            "unaVez" => "Una vez",
+            "semanal" => "Semanal",
+            "quincenal" => "Quincenal",
+            "mensual" => "Mensual"
+        ];
     }
     public function getSolicitante()
     {

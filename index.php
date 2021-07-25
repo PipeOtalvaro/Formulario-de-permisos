@@ -1,16 +1,10 @@
 <?php
 include("Conexion.php");
+require_once('Models/Dias.php');
 include("Views/Includes/header.php");
 ?>
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-define('DS', DIRECTORY_SEPARATOR);
-define('ROOT', realpath(dirname(__FILE__)), DS);
-define('URL', "http://localhost/formulario_permisos/");
-=======
-=======
->>>>>>> Stashed changes
+
 <body style="background-color:#EBEBEB">
     <!-- <link rel="stylesheet" href="../Templates/css/estilos.css" /> -->
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
@@ -194,22 +188,18 @@ define('URL', "http://localhost/formulario_permisos/");
                                 <div class="form-group row">
                                     <div class="col-sm-1">
                                         <label for="dias m-8">Días</label>
-                                    </div>
-                                    <div class="col-sm-11">
-                                        <label for="lunes">L</label>
-                                        <input type="checkbox" id="lunes" name="lunes" value="lunes">
-                                        <label for="martes">M</label>
-                                        <input type="checkbox" id="martes" name="martes" value="martes">
-                                        <label for="miercoles">X</label>
-                                        <input type="checkbox" id="miercoles" name="miercoles" value="miercoles">
-                                        <label for="jueves">J</label>
-                                        <input type="checkbox" id="jueves" name="jueves" value="jueves">
-                                        <label for="martes">V</label>
-                                        <input type="checkbox" id="viernes" name="viernes" value="viernes">
-                                        <label for="miercoles">S</label>
-                                        <input type="checkbox" id="sabado" name="sabado" value="sabado">
-                                        <label for="miercoles">D</label>
-                                        <input type="checkbox" id="domingo" name="domingo" value="domingo">
+                                        <?php
+                                        $dias = obtenerDias()
+                                        ?>
+                                        <?php if (count($dias) > 0) : ?>
+                                            <?php foreach ($dias as $d) : ?>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" name="dia_<?php echo $d->id; ?>"> <?php echo $d->title; ?>
+                                                    </label>
+                                                </div>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
@@ -252,9 +242,5 @@ define('URL', "http://localhost/formulario_permisos/");
     <script src="js/formularioSolicitud.js" />
     </script>
 </body>
-<<<<<<< Updated upstream
-<?php include("Views/Includes/footer.php"); ?>
->>>>>>> Stashed changes
-=======
-<?php include("Views/Includes/footer.php"); ?>
->>>>>>> Stashed changes
+
+<?php include("Views/Includes/footer.php") ?>
