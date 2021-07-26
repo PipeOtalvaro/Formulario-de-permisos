@@ -2,21 +2,26 @@
 
 namespace Models;
 
+use Models\Jefe;
+
 class Persona
 {
     private $id;
     private $nombre;
     private $primerApellido;
     private $segundoApellido;
+    private $identifacion;
     private $telefono;
     private $email;
     private $createAt;
+    private $jefeDirecto;
 
 
     private $con;
     public function __construct()
     {
         $this->con = new Conexion();
+        $this->jefeDirecto = new Jefe();
     }
     public function setId($id)
     {
@@ -52,6 +57,14 @@ class Persona
     public function getSegundoApellido()
     {
         return $this->segundoApellido;
+    }
+    public function setIdentificacion($identificacion)
+    {
+        $this->identificacion = $identificacion;
+    }
+    public function getIdentificacion()
+    {
+        return $this->identificacion;
     }
 
     public function setTelefono($telefono)
@@ -91,9 +104,12 @@ class Persona
 
     public function listar()
     {
-        $sql = "SELECT CONCAT(j.nombre, ' ', j.primer_apellido, ' ', j.segundo_apellido ) nombre_completo FROM jefes j 
-        UNION ALL
-        SELECT CONCAT(p.nombre, ' ', p.primer_apellido, ' ', p.segundo_apellido) FROM personas";
+        $sql = "SELECT p.identificacion, p.nombre, CONCAT(p.primer_apellido, ' ', COALESCE(p.segundo_apellido,'') ) apellidos, p.email, j.email
+                FROM personas p INNER JOIN jefes j
+                ON p.jefe_id = j.id
+                union all 
+                SELECT j.identificacion, j.nombre, CONCAT(j.primer_apellido,' ',j.segundo_apellido) apellidos, j.email, j.email
+                FROM jefes j";
         $datos = $this->con->consultaRetorno($sql);
         return $datos;
     }
@@ -105,7 +121,7 @@ class Persona
         $this->con->consultaSimple($sql);
     }
 
-    public function delete()
+    public function delete($id)
     {
         $sql = "DELETE FROM personas WHERE id = '{$this->id}'";
         $this->con->consultaSimple($sql);

@@ -16,7 +16,7 @@ class Request
             $ruta = explode("/", $ruta);
             $ruta = array_filter($ruta);
             if ($ruta[0] == "index.php") {
-                $this->controlador = "clientes";
+                $this->controlador = "solicitudes";
             } else {
                 $this->controlador = strtolower(array_shift($ruta));
             }
@@ -29,7 +29,7 @@ class Request
 
             $this->argumento = $ruta;
         } else {
-            $this->controlador = "clientes";
+            $this->controlador = "solicitudes";
             $this->metodo = "index";
         }
     }
