@@ -3,6 +3,7 @@
 namespace Models;
 
 use Models\Jefe;
+use Conexion;
 
 class Persona
 {
@@ -10,7 +11,7 @@ class Persona
     private $nombre;
     private $primerApellido;
     private $segundoApellido;
-    private $identifacion;
+    private $identificacion;
     private $telefono;
     private $email;
     private $createAt;
@@ -123,7 +124,14 @@ class Persona
 
     public function delete($id)
     {
+
         $sql = "DELETE FROM personas WHERE id = '{$this->id}'";
         $this->con->consultaSimple($sql);
+    }
+
+    public function findById($id)
+    {
+        $sql = "SELECT * FROM personas WHERE id = :id";
+        $this->con->consultaRetorno($sql);
     }
 }
