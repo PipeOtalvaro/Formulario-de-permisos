@@ -104,7 +104,7 @@ class Persona
 
     public function listar()
     {
-        $sql = "SELECT p.identificacion, p.nombre, CONCAT(p.primer_apellido, ' ', p.segundo_apellido ) apellidos, p.email, j.email
+        $sql = "SELECT p.identificacion, p.nombre, CONCAT(p.primer_apellido, ' ', COALESCE(p.segundo_apellido,'') ) apellidos, p.email, j.email
                 FROM personas p INNER JOIN jefes j
                 ON p.jefe_id = j.id
                 union all 
