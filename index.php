@@ -1,5 +1,6 @@
-<?php include(__DIR__ . '/Conexion.php'); ?>
+<?php require_once('Conexion.php'); ?>
 <?php include("Views/Includes/header.php"); ?>
+<?php include "Models/Dias.php" ?>
 
 
 <body style="background-color:#EBEBEB">
@@ -219,7 +220,6 @@
                         </div>
                     </form>
                     <div id="error">
-
                     </div>
                 </div>
             </div>

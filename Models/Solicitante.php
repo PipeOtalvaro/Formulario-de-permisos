@@ -14,10 +14,9 @@ class Solicitante extends Persona
         $this->con = new Conexion();
     }
 
-    public function addSolicitante($data)
+    public function findById($id)
     {
-        $sql = "INSERT INTO solicitantes (id, nombre, primer_apellido, segundo_apellido, celular, create_at, jefe_id)
-        VALUES(null, '{$this->nombre}','{$this->primerApellido}','{$this->segundoApellido}','{$this->telefono}','{$this->email}', NOW()";
-        $this->con->consultaSimple($sql);
+        $sql = "SELECT * FROM solicitantes WHERE id := ?";
+        $this->con->consultaRetorno($sql);
     }
 }

@@ -1,10 +1,9 @@
 <?php
 
-require_once "../Conexion.php";
-
 namespace Models;
 
-use Models\Conexion;
+use Conexion as Conexion;
+
 
 class Dias
 {
@@ -12,12 +11,12 @@ class Dias
     public $id;
     public $nombre;
 
-    public $con;
+    public $conexion;
+
     public function __construct()
     {
-        $this->con = new Conexion();
+        $this->conexion = new Conexion();
     }
-
     public function setId($id)
     {
         $this->id = $id;
@@ -39,13 +38,6 @@ class Dias
     public function obtenerDias()
     {
         $sql = "SELECT * FROM dias";
-        $query = $this->con->consultaRetorno($sql);
-        $data =  array();
-        if ($query) {
-            while ($dia = $query->fetch_object()) {
-                $data[] = $dia;
-            }
-        }
-        return $data;
+        return $this->con->consultaRetorno($sql);
     }
 }

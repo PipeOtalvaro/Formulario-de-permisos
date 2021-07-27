@@ -173,11 +173,4 @@ class Solicitud
     {
         return $this->respuesta;
     }
-
-    public function addSolicitud($data)
-    {
-        
-        $sql = "INSERT INTO solicitudes(id, fecha_solicitud, tipo_ausentismo, fecha_inicio, fecha_fin, hora_inicio, hora_fin, numero_dias, frecuencia, explicacion, dias_id, solicitantes_id, jefes_id, personas_id, estado) 
-        values ()"
-    }
 }
