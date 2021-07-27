@@ -7,6 +7,8 @@ use Models\Jefe;
 class JefeController
 {
 
+
+
     public function obtenerJefes()
     {
         $jefe = new Jefe();
