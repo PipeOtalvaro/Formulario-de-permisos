@@ -109,25 +109,12 @@ class Persona
                 FROM personas p INNER JOIN jefes j
                 ON p.jefe_id = j.id
                 union all 
-                SELECT j.identificacion, j.nombre, CONCAT(j.primer_apellido,' ',j.segundo_apellido) apellidos, j.email, j.email
+                SELECT j.identificacion, j.nombre, CONCAT(p.primer_apellido, ' ', COALESCE(p.segundo_apellido,'') ) apellidos, j.email, j.email
                 FROM jefes j";
         $datos = $this->con->consultaRetorno($sql);
         return $datos;
     }
 
-    public function add()
-    {
-        $sql = "INSERT INTO personas (id, nombre, primer_apellido, segundo_apellido, telefono, email, create_at)
-        VALUES(null, '{$this->nombre}','{$this->primerApellido}','{$this->segundoApellido}','{$this->telefono}','{$this->email}', NOW()";
-        $this->con->consultaSimple($sql);
-    }
-
-    public function delete($id)
-    {
-
-        $sql = "DELETE FROM personas WHERE id = '{$this->id}'";
-        $this->con->consultaSimple($sql);
-    }
 
     public function findById($id)
     {

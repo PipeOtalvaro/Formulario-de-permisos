@@ -21,6 +21,8 @@ class Conexion
         );
     }
 
+
+
     public function consultaSimple($sql)
     {
         $this->con->query($sql);

@@ -21,11 +21,11 @@ class Solicitud
     private $horaInicio;
     private $horaFin;
     private $numeroDias;
-    private $dias;
     private $frecuencia;
     private $explicacion;
     private $jefeDirecto;
     private $respuesta;
+    private $estado;
 
 
     public function __construct()
@@ -34,7 +34,6 @@ class Solicitud
         $this->personaAusente = new Persona();
         $this->jefeDirecto = new Jefe();
         $this->solicitante = new Solicitante();
-        $this->dias = new Dias();
     }
 
     public function setSolicitante($solicitante)
@@ -174,10 +173,9 @@ class Solicitud
         return $this->respuesta;
     }
 
-    public function addSolicitud($data)
+    public function listarSolicitud()
     {
-        
-        $sql = "INSERT INTO solicitudes(id, fecha_solicitud, tipo_ausentismo, fecha_inicio, fecha_fin, hora_inicio, hora_fin, numero_dias, frecuencia, explicacion, dias_id, solicitantes_id, jefes_id, personas_id, estado) 
-        values ()"
+        $sql = "SELECT s.fecha_solicitud, s.estado FROM solicitudes s";
+        return $this->con->consultaRetorno($sql);
     }
 }
