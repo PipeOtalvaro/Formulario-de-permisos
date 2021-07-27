@@ -10,7 +10,7 @@ function tablaPersonas() {
     $('#tablaPersonas').DataTable();
 }
 
-function validarCampoNumerico() {
+function validarCampoVacio() {
     let mensajeError=[];
 
     if(celular.value === null || celular.value ==='' ){

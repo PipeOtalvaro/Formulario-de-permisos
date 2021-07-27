@@ -21,11 +21,11 @@ class Solicitud
     private $horaInicio;
     private $horaFin;
     private $numeroDias;
-    private $dias;
     private $frecuencia;
     private $explicacion;
     private $jefeDirecto;
     private $respuesta;
+    private $estado;
 
 
     public function __construct()
@@ -34,7 +34,6 @@ class Solicitud
         $this->personaAusente = new Persona();
         $this->jefeDirecto = new Jefe();
         $this->solicitante = new Solicitante();
-        $this->dias = new Dias();
     }
 
     public function setSolicitante($solicitante)
@@ -172,5 +171,11 @@ class Solicitud
     public function getRespuesta()
     {
         return $this->respuesta;
+    }
+
+    public function listarSolicitud()
+    {
+        $sql = "SELECT s.fecha_solicitud, s.estado FROM solicitudes s";
+        return $this->con->consultaRetorno($sql);
     }
 }

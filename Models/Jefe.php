@@ -13,8 +13,4 @@ class Jefe extends Persona
         $datos = $this->con->consultaRetorno($sql);
         return $datos;
     }
-
-    public function findByName(string $nombre)
-    {
-    }
 }
