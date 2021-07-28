@@ -1,0 +1,20 @@
+[
+    {
+        "id": 0,
+        "nombre": "Zlatan",
+        "primerApellido": "Ibrahimovic",
+        "segundoApellido": ""
+    },
+    {
+        "id": 1,
+        "nombre": "Lionel",
+        "primerApellido": "Messi",
+        "segundoApellido": "Cuccitinni"
+    },
+    {
+        "id": 2,
+        "nombre": "Cristiano",
+        "primerApellido": "Ronaldo",
+        "segundoApellido": ""
+    }
+]

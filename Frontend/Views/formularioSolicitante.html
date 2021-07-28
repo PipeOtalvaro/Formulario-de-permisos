@@ -90,11 +90,8 @@
                         <div class=" form-group row my-2">
                             <label for="jefeDirecto" class="col-form-label col-sm-2">Jefe directo</label>
                             <div class="col-sm-6">
-                                <select class="form-select" aria-label="Default select example" id="jefeDirectoSolicitante" >
-                                    <option selected>Seleccione el jefe directo</option>
-                                    <option value="$this->jef->id" ->$this->jefe->nombre</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                <select class="form-select" aria-label="Default select example" id="jefeDirectoSolicitante" name="jefeDirectoSolicitante">
+                                    <option selected >Seleccione el jefe directo</option>
                                 </select>
                             </div>
                         </div>
@@ -115,20 +112,10 @@
                                             <th>Nombre</th>
                                             <th>Apellidos</th>
                                             <th>Correo electrónico</th>
-                                            <th>Correo jefe</th>
                                             <th>Acciones</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><input type="checkbox" id="seleccionaPersona"></td>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td><button class="btn btn-danger" style="width:100%">Eliminar</button></td>
-                                        </tr>
+                                    <tbody id="res">
                                     </tbody>
                                 </table>
                                 <hr>
@@ -194,13 +181,13 @@
                                         </div>
                                     </div>
                                     <div class="form-group row my-2">
-                                        <label><input type="checkbox" id="lunes" value="1 " onclick="elegirDias(this)" onclick="validarSeleccion()"> L </label><br>
-                                        <label><input type="checkbox" id="martes" value="2 " onclick="elegirDias(this)"> M </label><br>
-                                        <label><input type="checkbox" id="miercoles" value="3 " onclick="elegirDias(this)"> X </label><br>
-                                        <label><input type="checkbox" id="jueves" value="4 " onclick="elegirDias(this)"> J </label><br>
-                                        <label><input type="checkbox" id="viernes" value="5 " onclick="elegirDias(this)"> V </label><br>
-                                        <label><input type="checkbox" id="sabado" value="6 " onclick="elegirDias(this)"> S </label><br>
-                                        <label><input type="checkbox" id="domingo" value="0 " onclick="elegirDias(this)"> D </label><br>
+                                        <label><input type="checkbox" class="numeroDias" id="lunes" value="1 " onclick="elegirDias(this)"> L </label><br>
+                                        <label><input type="checkbox" class="numeroDias" id="martes" value="2 " onclick="elegirDias(this)"> M </label><br>
+                                        <label><input type="checkbox" class="numeroDias" id="miercoles" value="3 " onclick="elegirDias(this)"> X </label><br>
+                                        <label><input type="checkbox" class="numeroDias" id="jueves" value="4 " onclick="elegirDias(this)"> J </label><br>
+                                        <label><input type="checkbox" class="numeroDias" id="viernes" value="5 " onclick="elegirDias(this)"> V </label><br>
+                                        <label><input type="checkbox" class="numeroDias" id="sabado" value="6 " onclick="elegirDias(this)"> S </label><br>
+                                        <label><input type="checkbox" class="numeroDias" id="domingo" value="0 " onclick="elegirDias(this)"> D </label><br>
 
                                     </div>
                                 </div>
@@ -229,10 +216,7 @@
                                 <label for="jefeDirecto" class="col-form-label col-sm-2">Jefe directo</label>
                                 <div class="col-sm-6">
                                     <select class="form-select" aria-label="Default select example" id="jefeDirectoPersona" class="form-control requerido" name="jefeDirectoPersona">
-                                        <option selected>Seleccione el jefe directo</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+
                                     </select>
                                 </div>
                             </div>

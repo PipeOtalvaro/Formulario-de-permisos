@@ -1,11 +1,63 @@
 $(document).ready(
     tablaPersonas(),
-    capturarFechaActual()
+    capturarFechaActual(),
+    llenarSelect()
     
 );
 
+function opcionesSelectJefes() {
+    
+}
 function tablaPersonas() {
     $('#tablaPersonas').DataTable();
+    const xhttp = new XMLHttpRequest();
+    xhttp.open('GET', 'personas.json', true);
+    xhttp.send();
+    xhttp.onreadystatechange = function () {
+
+            let datos = JSON.parse(this.responseText);
+            let res = document.querySelector('#res');
+            res.innerHTML=""
+            for (let persona of datos) {
+                res.innerHTML += `<tr>
+                    <td><input type="checkbox" id="${persona.id}"></td>
+                    <td>${persona.identificacion}</td>
+                    <td>${persona.nombre}</td>
+                    <td>${persona.apellidos}</td>
+                    <td>${persona.email}</td>
+                    <td><button class="btn btn-danger" style="width:100%" onClick="eliminar()">Eliminar</button></td>
+                    </tr>`;
+            }
+
+    }
+}
+
+function eliminar() {
+    console.log("Hola");
+}
+
+function llenarSelect() {
+    const xhttp = new XMLHttpRequest();
+    xhttp.open('GET', 'jefes.json', true);
+    xhttp.send();
+    xhttp.onreadystatechange = function () {
+
+        let datos = JSON.parse(this.responseText);
+        let jefeSolicitante = document.querySelector('#jefeDirectoSolicitante');
+        let jefePersona = document.querySelector('#jefeDirectoPersona');
+        jefeSolicitante.innerHTML = "";
+        jefePersona.innerHTML = "";
+        for (let jefe of datos) {
+
+            jefeSolicitante.innerHTML += `
+                <option value="${jefe.id}">${jefe.nombre}  ${jefe.primerApellido}  ${jefe.segundoApellido} </option>
+            `;
+            jefePersona.innerHTML += `
+                <option value="${jefe.id}">${jefe.nombre}  ${jefe.primerApellido}  ${jefe.segundoApellido} </option>
+            `;
+        }
+
+    }
 }
 
 function campoObligatorio() {
@@ -73,9 +125,10 @@ function elegirDias(element) {
     } else {
         diasElegidos.splice(diasElegidos.indexOf(element.value), 1)
     }
+    
 }
 
-function numeroDias(params) {
+function numeroDias() {
 
     let fechaInicio = document.getElementById("fechaInicio").value;
     let fechaFin = document.getElementById("fechaFin").value;
@@ -85,23 +138,18 @@ function numeroDias(params) {
     var result = [];
     for (let i = 0; i < dias.length; i++) {
         
-        let start = moment(fechaInicio),
-            end = moment(fechaFin), 
-            day = parseInt(dias[i],10);
+        let inicio = moment(fechaInicio),
+            fin = moment(fechaFin), 
+            dia = parseInt(dias[i],10);
         
-        let current = start.clone();
+        let current = inicio.clone();
     
-        while (current.day(7 + day).isBefore(end)) {
+        while (current.day(7 + dia).isBefore(fin)) {
             result.push(current.clone());
             contador++;            
         } 
         $('#numeroDias').val(contador);
     }
-    console.log(result.map(m => m.format('LLLL')));
-}
-
-function validarSeleccion() {
-    console.log("hola");
 }
 
 function guardarSolicitud() {
@@ -110,32 +158,42 @@ function guardarSolicitud() {
     compararFechas();
     numeroDias();
 
-    // const nombre = document.getElementById("nombre").textContent;
-    // const primerApellido = document.getElementById("primerApellido").textContent;
-    // const segundoApellido = document.getElementById("segundoApellido").textContent;
-    // const fechaSolicitud = document.getElementById("fechaSolicitud").textContent;
-    // const cardinalidad = document.getElementById("cardinalidad").textContent;
-    // const fechaInicio = document.getElementById("fechaInicio").textContent;
-    // const fechaFin = document.getElementById("fechaFin").textContent;
-    // const horaInicio = document.getElementById("horaInicio").textContent;
-    // const horaFin = document.getElementById("horaFin").textContent;
-    // const numeroDias = document.getElementById("numeroDias").textContent;
-    // const explique = document.getElementById("explique").textContent;
-    // const persona = document.getElementById("persona").textContent;
+    // const nombre = document.getElementById("nombre").value;
+    // const primerApellido = document.getElementById("primerApellido").value;
+    // const segundoApellido = document.getElementById("segundoApellido").value;
+    // const celular = document.getElementById("celular").value;
+    // const fechaSolicitud = document.getElementById("fechaSolicitud").value;
+    // const jefeDirectoSolicitante = document.getElementById("jefeDirectoSolicitante").value;
+    // const cardinalidad = document.getElementById("cardinalidad").value;
+    // const fechaInicio = document.getElementById("fechaInicio").value;
+    // const fechaFin = document.getElementById("fechaFin").value;
+    // const horaInicio = document.getElementById("horaInicio").value;
+    // const horaFin = document.getElementById("horaFin").value;
+    // const numeroDias = document.getElementById("numeroDias").value;
+    // const frecuencia = document.getElementById("frecuencia").value;
+    // const explicaion = document.getElementById("explicaion").value;
+    // const persona = document.getElementById("persona").value;
+    // const jefeDirectoPersona = document.getElementById("jefeDirectoPersona").value;
 
     // const infoEnviar = {
-    //     nombre: nombre,
-    //     primerApellido: primerApellido,
-    //     segundoApellido: segundoApellido,
-    //     fechaSolicitud: fechaSolicitud,
-    //     cardinalidad: cardinalidad,
-    //     fechaInicio: fechaInicio,
-    //     fechaFin: fechaFin,
-    //     horaInicio: horaInicio,
-    //     horaFin: horaFin,
-    //     numeroDias: numeroDias,
-    //     explique: explique
+    //     nombre: nombre, 
+    //     primerApellido: primerApellido, 
+    //     segundoApellido: segundoApellido, 
+    //     celular: celular, 
+    //     fechaSolicitud: fechaSolicitud, 
+    //     jefeDirectoSolicitante: jefeDirectoSolicitante, 
+    //     cardinalidad: cardinalidad, 
+    //     fechaInicio: fechaInicio, 
+    //     fechaFin: fechaFin, 
+    //     horaInicio: horaInicio, 
+    //     horaFin: horaFin, 
+    //     numeroDias: numeroDias, 
+    //     frecuencia: frecuencia, 
+    //     explicaion: explicaion, 
+    //     persona: persona,
+    //     jefeDirectoPersona: jefeDirectoPersona
     // }
+    // console.log(infoEnviar);
 
     // fetch(
     //     {
