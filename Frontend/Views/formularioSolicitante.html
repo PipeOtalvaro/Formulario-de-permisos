@@ -1,9 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <meta charset="utf-8" />
+    <title>Formulario de solicitud</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
 <body style="background-color:#EBEBEB">
+
     <!-- <link rel="stylesheet" href="../Templates/css/estilos.css" /> -->
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
@@ -44,37 +60,37 @@
                         <div class=" form-group row my-2 ">
                             <label for=" nombre" class="col-form-label col-sm-2">Nombre</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="nombre" id="nombreSolicitante" placeholder="Nombre del solicitante" maxLength="85" autofocus required">
+                                <input type="text" class="form-control requerido" name="nombre" id="nombreSolicitante" placeholder="Nombre del solicitante" maxLength="85" autofocus ">
                             </div>
                         </div>
                         <div class="form-group row my-2">
                             <label for="primerApellido" class="col-form-label col-sm-2">Primer apellido</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="primerApellido" id="primerApellido" placeholder="Primer Apellido" maxLength="85" required>
+                                <input type="text" class="form-control requerido" name="primerApellido" id="primerApellido" placeholder="Primer Apellido" maxLength="85" >
                             </div>
                         </div>
                         <div class=" form-group row my-2">
                             <label for="segundoApellido" class="col-form-label col-sm-2">Segundo apellido</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="segundoApellido" id="segundoApellido" placeholder="Segundo Apellido" maxLength="85" required>
+                                <input type="text" class="form-control requerido" name="segundoApellido" id="segundoApellido" placeholder="Segundo Apellido" maxLength="85" >
                             </div>
                         </div>
                         <div class=" form-group row my-2">
                             <label for="celular" class="col-form-label col-sm-2">Celular</label>
                             <div class="col-sm-6">
-                                <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" maxLength="15" class="form-control" name="celular" id="celular" placeholder="Número de celular" required>
+                                <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" maxLength="15" class="form-control requerido" name="celular" id="celular" placeholder="Número de celular" >
                             </div>
                         </div>
                         <div class=" form-group row my-2">
                             <label for="fechaSolicitud" class="col-form-label col-sm-2">Fecha de solicitud</label>
                             <div class="col-sm-6">
-                                <input type="date" class="form-control" name="fechaSolicitud" id="fechaSolicitud" placeholder="Fecha de solicitud" required>
+                                <input type="date" class="form-control " name="fechaSolicitud" id="fechaSolicitud" placeholder="Fecha de solicitud" readonly >
                             </div>
                         </div>
                         <div class=" form-group row my-2">
                             <label for="jefeDirecto" class="col-form-label col-sm-2">Jefe directo</label>
                             <div class="col-sm-6">
-                                <select class="form-select" aria-label="Default select example" id="jefeDirectoSolicitante" required>
+                                <select class="form-select" aria-label="Default select example" id="jefeDirectoSolicitante" >
                                     <option selected>Seleccione el jefe directo</option>
                                     <option value="$this->jef->id" ->$this->jefe->nombre</option>
                                     <option value="2">Two</option>
@@ -138,7 +154,7 @@
                                         <div class=" form-group row">
                                             <label for="fechaInicio" class="col-form-label col-sm-5">Fecha de inicio</label>
                                             <div class="col-sm-7">
-                                                <input type="date" class="form-control" name="fechaInicio" id="fechaInicio" placeholder="Fecha de inicio" required>
+                                                <input type="date" class="form-control requerido" name="fechaInicio" id="fechaInicio" placeholder="Fecha de inicio" >
                                             </div>
                                         </div>
                                     </div>
@@ -146,17 +162,20 @@
                                         <div class=" form-group row">
                                             <label for="fechaFin" class="col-form-label col-sm-5">Fecha de finalización</label>
                                             <div class="col-sm-7">
-                                                <input type="date" class="form-control" name="fechaFin" id="fechaFin" placeholder="Fecha de finalización" required>
+                                                <input type="date" class="form-control requerido" name="fechaFin" id="fechaFin" placeholder="Fecha de finalización" >
                                             </div>
                                         </div>
                                     </div>
+                                    <span id="errorFechas" type="text" class="text text-danger"></span>
+                                    <span id="errorFechasInicioMenorActual" type="text" class="text text-danger"></span>
+                                    <span id="errorFechasNoSelecionadas" type="text" class="text text-danger"></span>
                                 </div>
                                 <div class="form-group row col-sm-12">
                                     <div class="col-4">
                                         <div class=" form-group row">
                                             <label for="horaInicio" class="col-form-label col-sm-5">Hora de inicio</label>
                                             <div class="col-sm-7">
-                                                <input type="time" class="form-control" name="horaInicio" id="horaInicio" min="07:00" max="18:00" required>
+                                                <input type="time" class="form-control requerido" name="horaInicio" id="horaInicio" min="07:00" max="18:00" >
                                             </div>
                                         </div>
                                     </div>
@@ -164,15 +183,25 @@
                                         <div class=" form-group row">
                                             <label for="horaFin" class="col-form-label col-sm-5">Hora de finalización</label>
                                             <div class="col-sm-7">
-                                                <input type="time" class="form-control" name="horaFin" id="horaFin" min="07:00" max="18:00" required>
+                                                <input type="time" class="form-control requerido" name="horaFin" id="horaFin" min="07:00" max="18:00" >
                                             </div>
                                         </div>
                                     </div>
                                     <div class=" form-group row col">
                                         <label for="numeroDias" class="col-form-label col-sm-6">Número de días</label>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control" name="numeroDias" id="numeroDias" placeholder="Número de días" readonly required>
+                                            <input type="text" class="form-control" name="numeroDias" id="numeroDias" placeholder="Número de días" readonly >
                                         </div>
+                                    </div>
+                                    <div class="form-group row my-2">
+                                        <label><input type="checkbox" id="lunes" value="1 " onclick="elegirDias(this)" onclick="validarSeleccion()"> L </label><br>
+                                        <label><input type="checkbox" id="martes" value="2 " onclick="elegirDias(this)"> M </label><br>
+                                        <label><input type="checkbox" id="miercoles" value="3 " onclick="elegirDias(this)"> X </label><br>
+                                        <label><input type="checkbox" id="jueves" value="4 " onclick="elegirDias(this)"> J </label><br>
+                                        <label><input type="checkbox" id="viernes" value="5 " onclick="elegirDias(this)"> V </label><br>
+                                        <label><input type="checkbox" id="sabado" value="6 " onclick="elegirDias(this)"> S </label><br>
+                                        <label><input type="checkbox" id="domingo" value="0 " onclick="elegirDias(this)"> D </label><br>
+
                                     </div>
                                 </div>
                                 <br>
@@ -185,22 +214,21 @@
                             <div class=" form-group row my-2">
                                 <label for="frecuencia" class="col-form-label col-sm-2">Frecuencia</label>
                                 <div class="col-sm-6">
-                                    <select class="form-select" aria-label="Default select example" id="frecuencia" required>
+                                    <select class="form-select requerido" aria-label="Default select example" id="frecuencia" >
                                         <option selected>Seleccione la frecuencia en que se ausentará</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                        <option value="1">Una vez</option>
+
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group row my-2">
                                 <label for="explique" class="col-form-label col-sm-2">Explique</label>
-                                <textarea name="explicacion" cols="30" id="explicacion" rows="10"></textarea>
+                                <textarea name="explicacion" class="form-control requerido" id="explicaion" cols="30" id="explicacion" rows="10"></textarea>
                             </div>
                             <div class=" form-group row my-2">
                                 <label for="jefeDirecto" class="col-form-label col-sm-2">Jefe directo</label>
                                 <div class="col-sm-6">
-                                    <select class="form-select" aria-label="Default select example" id="jefeDirectoPersona" required>
+                                    <select class="form-select" aria-label="Default select example" id="jefeDirectoPersona" class="form-control requerido" name="jefeDirectoPersona">
                                         <option selected>Seleccione el jefe directo</option>
                                         <option value="1">One</option>
                                         <option value="2">Two</option>
@@ -209,17 +237,28 @@
                                 </div>
                             </div>
                         </div>
+                        <div>
+                            <span id="error" type="text" class="text text-danger">  
+
+                            </span>
+                        </div>
                         <hr>
                         <div class=" form-group row my-2">
-                            <input type="submit" class="btn btn-primary" name="guardar" value="Enviar">
+                            <input class="btn btn-primary " name="guardar" value="Enviar" onclick="guardarSolicitud()">
                         </div>
                     </form>
-                    <div id="error">
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="js/formularioSolicitud.js" />
+    <script src="../Static/js/formularioSolicitud.js" />
     </script>
 </body>
+            <footer class="footer">
+                <div class="container text-center">
+                    Todos los derechos reservados &copy 2021 <br>
+                    Felipe Otálvaro
+                </div>
+            </footer>
+            
+            </html>
