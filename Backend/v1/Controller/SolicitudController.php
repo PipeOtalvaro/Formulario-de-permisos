@@ -4,7 +4,7 @@ namespace Controller;
 
 use Models\Solicitante as Solicitante;
 use Models\Solicitud as Solicitud;
-use Conexion;
+use Models\Conexion as Conexion;
 
 class SolicitudController
 {

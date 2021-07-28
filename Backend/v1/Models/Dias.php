@@ -2,7 +2,7 @@
 
 namespace Models;
 
-use Conexion as Conexion;
+use Models\Conexion as Conexion;
 
 
 class Dias
